@@ -24,3 +24,14 @@ def models_folder(rel='') -> str:
 def tests_folder(rel='') -> str:
   """Returns a path relative to the `tests` folder."""
   return os.path.join(top_folder('tests'), rel)
+
+
+def make_directory(filepath: str):
+  """Makes the containing directory of a file."""
+  pardir = os.path.abspath(os.path.join(filepath, os.pardir))
+  os.makedirs(pardir, exist_ok=True)
+
+
+def containing_folder(filepath: str) -> str:
+  """Returns the folder containing `filepath`."""
+  return os.path.dirname(os.path.realpath(filepath))

@@ -9,9 +9,9 @@ Example printout:
 
 import logging
 
-_PREFIX = 'snippets'
+LOGGER_NAME = 'snippets'
 
-logger = logging.getLogger(_PREFIX)
+logger = logging.getLogger(LOGGER_NAME)
 logger.setLevel(logging.DEBUG)
 logger.propagate = False
 if not logger.hasHandlers():

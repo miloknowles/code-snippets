@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pytz = "*"
+unidecode = "*"
+numpy = "*"
 
 [dev-packages]
 pytest = "*"

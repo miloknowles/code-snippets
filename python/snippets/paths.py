@@ -1,29 +1,35 @@
 import os
 
 
-def top_folder(rel='') -> str:
+def top_folder(relative_path: str = "") -> str:
   """Returns the path to the top of the repository.
   
   Notes
   -----
   Assumes that this script is one directory down from the top of the repository.
+
+  Usage
+  -----
+  * Get the absolute path to the repository with `top_folder()`
+  * Get the path to a subfolder in the repository with `top_folder("relative/path/...")`
+  * You can go into parent directories using `top_folder("../parent/...")`
   """
-  return os.path.join(os.path.abspath(os.path.join(os.path.realpath(__file__), "../../")), rel)
+  return os.path.join(os.path.abspath(os.path.join(os.path.realpath(__file__), "../../")), relative_path)
 
 
-def data_folder(rel='') -> str:
+def data_folder(relative_path: str = "") -> str:
   """Returns a path relative to the `data` folder."""
-  return os.path.join(top_folder('data'), rel)
+  return os.path.join(top_folder('data'), relative_path)
 
 
-def models_folder(rel='') -> str:
+def models_folder(relative_path: str = "") -> str:
   """Returns a path relative to the `models` folder."""
-  return os.path.join(top_folder('models'), rel)
+  return os.path.join(top_folder('models'), relative_path)
 
 
-def tests_folder(rel='') -> str:
+def tests_folder(relative_path: str = "") -> str:
   """Returns a path relative to the `tests` folder."""
-  return os.path.join(top_folder('tests'), rel)
+  return os.path.join(top_folder('tests'), relative_path)
 
 
 def make_directory(filepath: str):
